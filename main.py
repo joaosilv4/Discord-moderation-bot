@@ -759,3 +759,7 @@ async def unload(ctx, extension):
 for filename in os.listdir('./cogs'):  # create a loop when the bot starts it runs every file that starts with '.py' loaded like a 'Cog' // './' means current directory that I'm in
     if filename.endswith('.py'):
         bot.load_extension(f'cogs.{filename[:-3]}')  # Takes out the last 3 digits('.py'), because we want to run the file as 'cogs.example' and not 'cogs.example.py'
+
+#--------------------------------------------------------------------------------        
+        
+bot.run('[token]') #token
