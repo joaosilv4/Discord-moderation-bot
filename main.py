@@ -23,8 +23,6 @@ status = cycle(['Type $!help', 'Moderation Bot'])
 ###########################    Administrators / Moderators Commands    ###########################
 
 
-#--------------------------------------------------------------------------------
-
 # 'server' command build
 @bot.command()
 async def server(ctx):
@@ -236,11 +234,6 @@ async def removerole(ctx, role: discord.Role, user: discord.Member):
 
 #--------------------------------------------------------------------------------
 
-@bot.command()
-async def hello(id):
-    guild = bot.get_guild(id)
-    memberList = guild.members
-
 # Error message when you type a command that does not exist
 @bot.event
 async def on_command_error(ctx, error):
@@ -248,6 +241,7 @@ async def on_command_error(ctx, error):
         pass
         ### await ctx.send('**Invalid command used. Type $!help to see all the available commands.**')
 
+#--------------------------------------------------------------------------------
 
 # 'clear' command build / Set the bot to read some type of commands to Users that have the permission to manage messages
 @bot.command()
@@ -276,6 +270,7 @@ async def clear_error(ctx, error):
 
         await ctx.send(embed=embed)
 
+#--------------------------------------------------------------------------------
 
 # 'kick' command build / Set the bot to read some type of commands to Users that have the permission to manage messages
 @bot.command()
@@ -305,6 +300,7 @@ async def kick_error(ctx, error):
         embed.add_field(name=kickt, value=kick, inline=False)
         await ctx.send(embed=embed)
 
+#--------------------------------------------------------------------------------      
 
 # 'ban' command build / Set the bot to read some type of commands to Users that have the permission to manage messages
 @bot.command()
@@ -335,6 +331,7 @@ async def ban_error(ctx, error):
 
         await ctx.send(embed=embed)
 
+#--------------------------------------------------------------------------------
 
 # 'unban' command build / Set the bot to read some type of commands to Users that have the permission to manage roles
 @bot.command()
@@ -373,6 +370,7 @@ async def unban_error(ctx, error):
 
         await ctx.send(embed=embed)
 
+#--------------------------------------------------------------------------------
 
 @bot.command()
 async def type(ctx, arg):
@@ -389,6 +387,7 @@ async def embedtype(ctx, arg):
     await (ctx.channel.purge(limit=1))
     await ctx.send(embed=embed)
 
+#--------------------------------------------------------------------------------
 
 @bot.command()
 async def suggest(ctx, message):
@@ -401,13 +400,13 @@ async def suggest(ctx, message):
     await (ctx.channel.purge(limit=1))
     await ctx.send(embed=embed)
 
-
+#--------------------------------------------------------------------------------
+    
 @bot.command()
 async def serverMembers(ctx):
     await ctx.send(ctx.guild.member_count)
 
-
-# learnt the commands from https://discordpy.readthedocs.io/
+#--------------------------------------------------------------------------------
 
 
 @bot.command()
@@ -422,6 +421,7 @@ async def weather(ctx):
     embed=discord.Embed(title="Terabyte Bot", description = botweather)
     await ctx.send(embed=embed)
 
+#--------------------------------------------------------------------------------
 
 @bot.command()
 async def game(ctx):
@@ -435,6 +435,7 @@ async def game(ctx):
     embed=discord.Embed(title="Terabyte Bot", description = botgame)
     await ctx.send(embed=embed)
 
+#--------------------------------------------------------------------------------
 
 @bot.command()
 async def pickup(ctx):
@@ -462,6 +463,7 @@ async def pickup(ctx):
     embed=discord.Embed(title="Terabyte Bot", description = pickup)
     await ctx.send(embed=embed)
 
+#--------------------------------------------------------------------------------       
 
 @bot.command()
 async def joke(ctx,):
@@ -475,6 +477,7 @@ async def joke(ctx,):
     embed=discord.Embed(title="Terabyte Bot", description = botjoke)
     await ctx.send(embed=embed)
 
+#--------------------------------------------------------------------------------
 
 @bot.command()
 async def youtube(ctx, userinput):
@@ -513,6 +516,7 @@ async def youtube(ctx, userinput):
         await ctx.send("Average view per video is: " + str(average_view_per_video_rounded))
         # this prints out the subcount view count video count and average views
 
+#--------------------------------------------------------------------------------       
 
 @bot.event
 # Handle all command errors
@@ -529,6 +533,8 @@ async def on_command_error(ctx, error):
     else:
         await ctx.send('The following error has occurred: ' + str(error))
 
+ #--------------------------------------------------------------------------------
+
     # Load command
     # Used for loading cogs
 @bot.command(name='load')
@@ -542,6 +548,8 @@ async def load(ctx, extension):
 async def unload(ctx, extension):
     bot.unload_extension(f'cogs.{extension}')
     await ctx.send(f'Unloaded Cog: {extension}')
+    
+#--------------------------------------------------------------------------------
 
 # Set cogs (Cogs File)
 for filename in os.listdir('./cogs'):  # create a loop when the bot starts it runs every file that starts with '.py' loaded like a 'Cog' // './' means current directory that I'm in
