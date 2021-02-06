@@ -687,7 +687,7 @@ async def _8ball_error(self, ctx, error):
 async def youtube(ctx, userinput):
     valid=0
     count=0
-    api_key = 'AIzaSyA15zQB8MfRa73e--t27P04Vkyv7oDuV_A'
+    api_key = #'[api_key]'
 
     # got the function from https://www.youtube.com/watch?v=th5_9woFJmk
     youtube = build('youtube', 'v3',
