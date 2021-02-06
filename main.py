@@ -477,6 +477,210 @@ async def joke(ctx,):
     embed=discord.Embed(title="Terabyte Bot", description = botjoke)
     await ctx.send(embed=embed)
 
+#--------------------------------------------------------------------------------       
+    
+@bot.command()
+async def highRatedGames(self, ctx):
+    responses = {0: '"God of War"',
+                     1: '"Call of Duty: Modern Warfare 2"',
+                     2: '"Final Fantasy IX"',
+                     3: '"BioShock Infinite"',
+                     4: '"World of Goo"',
+                     5: '"Metal Gear Solid V: The Phantom Pain"',
+                     6: '"Portal 2"',
+                     7: '"Madden NFL 2003"',
+                     8: '"The Last of Us"',
+                     9: '"The Legend of Zelda: Majoras Mask"',
+                     10: '"The Legend of Zelda: A Link to the Past"',
+                     11: '"Halo 2"',
+                     12: '"Gran Turismo 3: A-Spec"',
+                     13: '"Red Dead Redemption"',
+                     14: '"Clash Royale"',
+                     15: '"LittleBigPlanet"',
+                     16: '"Grand Theft Auto: Vice City"',
+                     17: '"Grand Theft Auto: San Andreas"',
+                     18: '"Baldurs Gate II: Shadows of Amn"',
+                     19: '"Metal Gear Solid 2: Sons of Liberty"',
+                     20: '"Gran Turismo"',
+                     21: '"The Legend of Zelda: The Wind Waker"',
+                     22: '"Half-Life"',
+                     23: '"The Elder Scrolls V: Skyrim"',
+                     24: '"The Legend of Zelda: Twilight Princess"',
+                     25: '"Mass Effect 2"',
+                     26: '"Tekken 3"',
+                     27: '"Batman: Arkham City"',
+                     28: '"The Orange Box"',
+                     29: '"Resident Evil 4"'}
+
+    values = {
+            0: 'God of War is an action-adventure game franchise created by David Jaffe at Sony Santa Monica Studio based'
+               ' in ancient mythology. The story follows Kratos, a Spartan warrior who was tricked into killing his family'
+               ' by his former master, the Greek God of War Ares.',
+            1: 'Call of Duty: Modern Warfare 2 is a 2009 first-person shooter game developed by Infinity Ward and published'
+               ' by Activision. It is the sixth installment in the Call of Duty series and the direct sequel to Call of '
+               'Duty 4: Modern Warfare, continuing the storyline. It was released worldwide on November 10, 2009.',
+            2: 'Every character is memorable and unique. FINAL FANTASY IX features one of the quirkiest casts in the '
+               'entire FINAL FANTASY series - maybe even in all of gaming. Every character in the game is utterly '
+               'distinct - both visually and in terms of their personality.',
+            3: 'BioShock Infinite is a first-person shooter video game developed by Irrational Games and published by '
+               '2K Games. The game is set in the year 1912 and follows its protagonist, former Pinkerton agent Booker '
+               'DeWitt, who is sent to the airborne city of Columbia to find a young woman, Elizabeth, who has been held'
+               ' captive there for most of her life. Though Booker rescues Elizabeth, the two become involved with the '
+               'citys warring factions: the nativist and elite Founders that rule Columbia and strive to keep its '
+               'privileges for White Americans, and the Vox Populi, underground rebels representing the underclass of '
+               'the city. ',
+            4: 'World of Goo is a puzzle video game developed and published by independent game developer 2D Boy. A '
+               'physics-based puzzler, World of Goo has the player use small balls of goo to create bridges and similar'
+               ' structures over chasms and obstacles to help other goo balls reach a goal point, with the challenge to'
+               ' use as few goo balls as possible to build this structure.',
+            5: 'Metal Gear Solid V: The Phantom Pain is an open world stealth game developed by Kojima Productions and '
+               'published by Konami. The Phantom Pain received perfect review scores from several publications and was '
+               'described as one of the greatest stealth games of all time. A complete edition that bundles The Phantom '
+               'Pain and Ground Zeroes together, titled Metal Gear Solid V: The Definitive Experience, was released in '
+               'October 2016.',
+            6: 'Portal 2 is a puzzle-platform game developed by Valve. It was released in April 2011 for Windows, Mac OS'
+               ' X, Linux, PlayStation 3, and Xbox 360. The digital PC version is distributed online by Valve Steam '
+               'service, while all retail editions were distributed by Electronic Arts.',
+            7: 'Madden NFL 2003 is an American football simulation video game based on the NFL that was developed by EA'
+               ' Tiburon and Budcat Creations and published by EA Sports.',
+            8: 'The Last of Us is a 2013 action-adventure game developed by Naughty Dog and published by Sony Computer '
+               'Entertainment. Players control Joel, a smuggler tasked with escorting a teenage girl, Ellie, across a '
+               'post-apocalyptic United States. The Last of Us is played from a third-person perspective. Players use '
+               'firearms and improvised weapons, and can use stealth to defend against hostile humans and cannibalistic'
+               ' creatures infected by a mutated fungus in the genus Cordyceps. In the online multiplayer mode, up to '
+               'eight players engage in cooperative and competitive gameplay.',
+            9: 'The Legend of Zelda: Majoras Mask is an action-adventure game developed and published by Nintendo for '
+               'the Nintendo 64. It featured enhanced graphics and several gameplay changes from its predecessor, though'
+               ' it reused a number of elements and character models, which the games creators called a creative decision'
+               ' made necessary by time constraints.',
+            10: 'The Legend of Zelda: A Link to the Past is an action-adventure game developed and published by Nintendo'
+                ' for the Super Nintendo Entertainment System. It is the third game in The Legend of Zelda series and '
+                'was released in 1991 in Japan and 1992 in North America and Europe.',
+            11: 'Halo 2 is a 2004 first-person shooter game developed by Bungie and published by Microsoft Game Studios.'
+                ' Released for the Xbox, the game is the second installment in the Halo franchise and the sequel to 2001'
+                ' critically acclaimed Halo: Combat Evolved. The game features a new game engine, added weapons and '
+                'vehicles, and new multiplayer maps.',
+            12: 'Gran Turismo 3: A-Spec is a 2001 racing game, the first in the Gran Turismo series released for the '
+                'PlayStation 2. During its demonstration at E3 2000 and E3 2001 the games working title was Gran Turismo'
+                ' 2000. The game was a critical and commercial success and went on to become one of the best-selling '
+                'video games of all time. Its aggregate score of 94.54% on GameRankings makes it the second-highest rated'
+                ' racing video game of all time. It has been listed as one of the greatest video games of all time.',
+            13: 'Red Dead Redemption is a 2010 action-adventure game developed by Rockstar San Diego and published by '
+                'Rockstar Games. A spiritual successor to 2004s Red Dead Revolver, it is the second game in the Red Dead'
+                ' series. Red Dead Redemption is set during the decline of the American frontier in the year 1911 and '
+                'follows John Marston, a former outlaw whose wife and son are taken hostage by the government in ransom'
+                ' for his services as a hired gun. Having no other choice, Marston sets out to bring three members of his'
+                ' former gang to justice.',
+            14: 'Clash Royale is a freemium real-time strategy video game developed and published by Supercell. The game'
+                ' combines elements from collectible card games, tower defense, and multiplayer online battle arena. The'
+                ' game was released globally on March 2, 2016. Clash Royale reached $1 billion in revenue in less than a'
+                ' year on the market.',
+            15: 'LittleBigPlanet (LBP) is a puzzle platform video game series created by British developer Media Molecule'
+                ' and published by Sony Computer Entertainment on multiple PlayStation platforms. All of the games in '
+                'the series put a strong emphasis on user-generated content and are based on the series tagline "Play, '
+                'Create, Share". The tagline represents the three core elements of the series: playing alone or with '
+                'others locally (on the same console) or online, creating new content using the in-game creation tools,'
+                ' and sharing creations and discoveries online with other players.',
+            16: 'Grand Theft Auto: Vice City is a 2002 action-adventure game developed by Rockstar North and published '
+                'by Rockstar Games as part of the Grand Theft Auto series. Set in 1986 within the fictional Vice City, '
+                'based on Miami, the game follows the exploits of mobster Tommy Vercetti after his release from prison. '
+                'Upon being caught up in an ambushed drug deal, he seeks out those responsible while slowly building a '
+                'criminal empire and seizing power from other criminal organisations in the city.',
+            17: 'Grand Theft Auto: San Andreas is a 2004 action-adventure game developed by Rockstar North and published'
+                ' by Rockstar Games. It is the seventh title in the Grand Theft Auto series, and the follow-up to the '
+                '2002 game Grand Theft Auto: Vice City. It was released in October 2004 for PlayStation 2, and in June '
+                '2005 for Microsoft Windows and Xbox. The game, set within an open world environment that players can '
+                'explore and interact with at their leisure, focuses on the story of former gangster Carl "CJ" Johnson,'
+                ' who is brought back home by the death of his mother, only to become involved in a long journey that '
+                'sees him exploring the fictional U.S. state of San Andreas, which is heavily based on California and '
+                'Nevada.',
+            18: 'Baldurs Gate II: Shadows of Amn is a role-playing video game developed by BioWare and published by '
+                'Interplay Entertainment. It is the sequel to Baldurs Gate (1998) and was released for Microsoft Windows'
+                ' in September 2000. Like Baldurs Gate, the game takes place in the Forgotten Realms—a fantasy campaign'
+                ' setting—and is based on the Advanced Dungeons & Dragons 2nd edition rules. Powered by BioWares Infinity'
+                ' Engine, Baldurs Gate II uses an isometric perspective and pausable real-time gameplay. The player '
+                'controls a party of up to six characters, one of whom is the player-created protagonist, while the others'
+                ' are certain characters recruited from the game world.',
+            19: 'Metal Gear Solid 2: Sons of Liberty[a] is a stealth game developed and published by Konami for the '
+                'PlayStation 2 on November 13, 2001. It is the fourth Metal Gear game written and directed by Hideo '
+                'Kojima, the seventh overall game in the series and is a direct sequel to the original Metal Gear Solid.'
+                ' An expanded edition, titled Metal Gear Solid 2: Substance, was released the following year for Xbox '
+                'and Microsoft Windows in addition to the PlayStation 2.',
+            20: 'Gran Turismo[a] (GT) is a series of racing simulation video games developed by Polyphony Digital. '
+                'Developed for PlayStation systems, Gran Turismo games are intended to emulate the appearance and '
+                'performance of a large selection of vehicles, most of which are licensed reproductions of real-world '
+                'automobiles. Since the franchises debut in 1997, over 80 million units have been sold worldwide for the'
+                ' PlayStation, PlayStation 2, PlayStation 3, PlayStation 4, and PlayStation Portable, making it the '
+                'highest selling video game franchise under the PlayStation brand.',
+            21: 'The Legend of Zelda: The Wind Waker[b] is an action-adventure game developed and published by Nintendo '
+                'for the GameCube home video game console. The tenth installment in The Legend of Zelda series, it was '
+                'released in Japan in December 2002, in North America in March 2003, and in Europe in May 2003.',
+            22: 'Half-Life is a first-person shooter video game developed by Valve and published by Sierra Studios for '
+                'Microsoft Windows in 1998. It was Valves debut product and the first game in the Half-Life series. '
+                'Players assume the role of Gordon Freeman, a scientist who must escape the Black Mesa Research Facility'
+                ' after it is invaded by aliens. The core gameplay consists of fighting alien and human enemies with a '
+                'variety of weapons and solving puzzles.',
+            23: 'The Elder Scrolls V: Skyrim is an open world action role-playing video game developed by Bethesda Game '
+                'Studios and published by Bethesda Softworks. It is the fifth main installment in The Elder Scrolls '
+                'series, following The Elder Scrolls IV: Oblivion, and was released worldwide for Microsoft Windows, '
+                'PlayStation 3, and Xbox 360 on November 11, 2011. The games main story revolves around the players '
+                'character, the Dragonborn, on their quest to defeat Alduin the World-Eater, a dragon who is prophesied '
+                'to destroy the world.',
+            24: 'The Legend of Zelda: Twilight Princess is an action-adventure game developed and published by Nintendo '
+                'for the GameCube and Wii home video game consoles. It is the thirteenth installment in the series The '
+                'Legend of Zelda. Originally planned for release exclusively on the GameCube in November 2005, Twilight '
+                'Princess was delayed by Nintendo to allow its developers to refine the game, add more content, and port'
+                ' it to the Wii.[4] The Wii version was a launch game in North America in November 2006, and in Japan, '
+                'Europe, and Australia the following month. The GameCube version was also released worldwide in December'
+                ' 2006, and was the final first-party game released for the console.'}
+    eletron = []
+    proton = []
+    for x in range(5):
+        tita = random.randrange(24)
+        while responses.get(tita) in eletron:
+            tita = random.randrange(24)
+        eletron.append(responses.get(tita))
+        proton.append(values.get(tita))
+    embed = discord.Embed(
+        title='Suggestions:',
+        color=discord.Color.from_rgb(255, 40, 0)
+    )
+    embed.add_field(name=eletron[0], value=proton[0], inline=False)
+    embed.add_field(name=eletron[1], value=proton[1], inline=False)
+    embed.add_field(name=eletron[2], value=proton[2], inline=False)
+    embed.add_field(name=eletron[3], value=proton[3], inline=False)
+    embed.add_field(name=eletron[4], value=proton[4], inline=False)
+    await ctx.send("I have some suggestions:")
+    await ctx.send(embed=embed)
+
+#--------------------------------------------------------------------------------   
+    
+# '8ball' command build
+@bot.command(aliases=['8ball'])  # abreviations and other names u can use to run this command as well as '_8ball'
+async def _8ball(self, ctx, *, question):
+    responses = ['It is certain.',
+                 'Hmm, Yes.',
+                 'It is decidedly so.',
+                 'Without a doubt.',
+                 'Yes - Definitly.',
+                 'You may rely on it.',
+                 'As I see it, yes.',
+                 'Ask again later.',
+                 'Better not tell you now.',
+                 'Concentrate and ask again.',
+                 'My reply is no.',
+                 'Hmm, No',
+                 'My sources say no.',
+                 'Very doubtful.']
+    await ctx.send(f'**Question:** {question}\n**Answer:** {random.choice(responses)}')
+
+    
+# '8ball' error message
+@_8ball.error
+async def _8ball_error(self, ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send('**Please type the command again and make a question.**')
+
 #--------------------------------------------------------------------------------
 
 @bot.command()
